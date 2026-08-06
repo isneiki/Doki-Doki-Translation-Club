@@ -1,8 +1,12 @@
 import { Routes, Route, Link } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Translations from "./pages/Translations";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 import icon from "./assets/logo.png";
 
 const App = () => {
@@ -16,13 +20,13 @@ const App = () => {
                       text-lg *:mt-2 md:*:mt-0"
         >
           <Link to="/" className="flex gap-3 items-center">
-            <img className="w-10" src={icon} alt="Logo" />
-            <h2 className="text-xl">DDTC</h2>
+            <img className="w-12 md:w-10" src={icon} alt="Logo" />
+            <h2 className="text-xl hidden md:block">DDTC</h2>
           </Link>
           <div>
             <ul className="flex gap-4 md:gap-6">
               <li>
-                <Link to="/" className="text-xl">
+                <Link to="/" className="text-xl hidden md:block">
                   Home
                 </Link>
               </li>
@@ -50,6 +54,8 @@ const App = () => {
           <Route path="/translations" element={<Translations />} />
           <Route path="/about" element={<About />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </main>
 

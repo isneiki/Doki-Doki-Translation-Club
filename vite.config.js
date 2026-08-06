@@ -5,4 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // For github pages:
+  // base: "/Doki-Doki-Translation-Club/",
 });
