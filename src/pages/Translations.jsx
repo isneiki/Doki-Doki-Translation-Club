@@ -1,18 +1,19 @@
 import Banner from "../assets/banner.png";
 import sayori from "../assets/sayori.png";
 import yuri from "../assets/yuri.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Translation from "../components/Translation";
+import { ServerContext } from "../Contexts/ServerContext";
 
 const Translations = () => {
+  const { server } = useContext(ServerContext);
+
   const [translations, setTranlations] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function loadAll() {
-      const res = await fetch(
-        "https://dokidokitranslationclub.squareweb.app/translations/all",
-      );
+      const res = await fetch(`${server}/translations/`);
       const data = await res.json();
 
       setTranlations(data.translations);
@@ -29,7 +30,7 @@ const Translations = () => {
     <div className="flex flex-col gap-8">
       <header className="flex flex-row items-center justify-center gap-3">
         <img src={sayori} alt="Sayori" className="w-28 hidden md:block" />
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-4">
           <h1 className="text-6xl">Traduções</h1>
           <p className="w-64 text-center">
             Nossa vasta coleção de traduções. Sem uso de IA. De humanos para
@@ -51,20 +52,18 @@ const Translations = () => {
         </div>
         <img src={yuri} alt="Yuri" className="w-32 hidden md:block" />
       </header>
-      <main className="flex flex-wrap">
-        <div className="flex flex-wrap gap-6 justify-center p-6">
-          {filteredTranslations.map((e) => (
-            <Translation
-              key={e.id}
-              name={e.name}
-              description={e.description}
-              banner={e.banner}
-              img={e.image}
-              linkPC={e.linkPC}
-              linkMobile={e.linkMobile}
-            ></Translation>
-          ))}
-        </div>
+      <main className="flex flex-wrap gap-6 justify-center p-4">
+        {filteredTranslations.map((e) => (
+          <Translation
+            key={e.id}
+            name={e.name}
+            description={e.description}
+            banner={e.banner}
+            img={e.image}
+            linkPC={e.linkPC}
+            linkMobile={e.linkMobile}
+          ></Translation>
+        ))}
       </main>
     </div>
   );

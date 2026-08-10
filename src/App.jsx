@@ -1,4 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
+import { createContext } from "react";
+
+import { ServerProvider } from "./Contexts/ServerContext";
 
 import Home from "./pages/Home";
 import Translations from "./pages/Translations";
@@ -49,14 +52,16 @@ const App = () => {
       </header>
 
       <main className="flex-1 p-2 bg-light py-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/translations" element={<Translations />} />
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-        </Routes>
+        <ServerProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/translations" element={<Translations />} />
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/admin" element={<Admin />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+          </Routes>
+        </ServerProvider>
       </main>
 
       <footer className="bg-dark h-12">

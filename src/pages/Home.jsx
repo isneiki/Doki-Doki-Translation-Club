@@ -3,16 +3,17 @@ import dokis from "../assets/dokis.png";
 import Translation from "../components/Translation";
 import banner from "../assets/banner.png";
 import icon from "../assets/logo.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ServerContext } from "../Contexts/ServerContext";
 
 const Home = () => {
+  const { server } = useContext(ServerContext);
+
   const [populars, setPopulars] = useState([]);
 
   useEffect(() => {
     async function loadPopulars() {
-      const res = await fetch(
-        "https://dokidokitranslationclub.squareweb.app/translations/popular",
-      );
+      const res = await fetch(`${server}/translations/popular`);
       const data = await res.json();
 
       setPopulars(data.translations);

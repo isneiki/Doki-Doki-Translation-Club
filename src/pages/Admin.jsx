@@ -23,7 +23,7 @@ const Admin = () => {
           onChange={onKeyChange}
         />
       </header>
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-col md:flex-row">
         <New adminKey={key}></New>
         <Remove adminKey={key}></Remove>
       </div>

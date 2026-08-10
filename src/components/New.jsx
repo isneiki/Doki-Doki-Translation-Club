@@ -1,7 +1,10 @@
-import { useRef, useState } from "react";
+import { ServerContext } from "../Contexts/ServerContext";
+import { useContext, useRef, useState } from "react";
 import Banner from "../assets/banner.png";
 
 const New = ({ adminKey }) => {
+  const { server } = useContext(ServerContext);
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [banner, setBanner] = useState("");
@@ -14,24 +17,21 @@ const New = ({ adminKey }) => {
   const submit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(
-      "https://dokidokitranslationclub.squareweb.app/translations/new",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          description: description,
-          banner: banner,
-          img: img,
-          linkPC: linkPC,
-          linkMobile: linkMobile,
-          adminKey: adminKey,
-        }),
+    const res = await fetch(`${server}/translations/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${adminKey}`,
       },
-    );
+      body: JSON.stringify({
+        name: name,
+        description: description,
+        banner: banner,
+        img: img,
+        linkPC: linkPC,
+        linkMobile: linkMobile,
+      }),
+    });
 
     if (!res.ok) {
       console.log(await res.text());
