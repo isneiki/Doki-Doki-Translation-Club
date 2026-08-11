@@ -23,7 +23,7 @@ const Remove = ({ adminKey }) => {
 
   useEffect(() => {
     const getTranslations = async () => {
-      const res = await fetch(`${server}/translations/`);
+      const res = await fetch(`${server}/translations/all`);
       const data = await res.json();
 
       setTranslations(data.translations);
