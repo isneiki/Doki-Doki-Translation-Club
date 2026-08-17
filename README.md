@@ -2,6 +2,6 @@
 
 Version: 1.0.0
 Latest Stable Version: 1.0.0
-Website: [dokidokitranslationclub.com.br](https://www.dokidokitranslationclub.com.br/index.html)
+Website: [dokidokitranslationclub](https://doki-doki-translation-club.vercel.app)
 
-Created by: [thaleskaua66](https://github.com/thaleskaua66)
+Created by: [isneiki](https://github.com/isneiki)

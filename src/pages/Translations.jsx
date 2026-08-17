@@ -1,4 +1,3 @@
-import Banner from "../assets/banner.png";
 import sayori from "../assets/sayori.png";
 import yuri from "../assets/yuri.png";
 import { useContext, useEffect, useState } from "react";
@@ -13,7 +12,7 @@ const Translations = () => {
 
   useEffect(() => {
     async function loadAll() {
-      const res = await fetch(`${server}/translations/`);
+      const res = await fetch(`${server}/translations/all`);
       const data = await res.json();
 
       setTranlations(data.translations);

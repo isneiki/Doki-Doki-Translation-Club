@@ -1,4 +1,5 @@
 import Banner from "../assets/banner.png";
+import DokiDoki from "../assets/dokidoki.png";
 
 const Translation = ({
   name,
@@ -10,7 +11,10 @@ const Translation = ({
   linkMobile,
 }) => {
   return (
-    <div className="flex flex-col bg-gray-800 w-64 rounded-md relative transition-transform duration-300 hover:scale-110">
+    <div
+      key={id}
+      className="flex flex-col bg-gray-800 w-64 rounded-md relative transition-transform duration-300 hover:scale-110"
+    >
       {banner !== "" && (
         <img
           src={banner}
@@ -25,11 +29,20 @@ const Translation = ({
           className="rounded-md w-64"
         />
       )}
-      <img
-        src={img}
-        alt={"Imagem de " + name}
-        className="absolute w-16 left-4 top-20 bg-gray-800 p-1 rounded-lg"
-      />
+      {img == "" && (
+        <img
+          src={DokiDoki}
+          alt={"Imagem de " + name}
+          className="absolute w-16 left-4 top-20 bg-gray-800 p-1 rounded-lg"
+        />
+      )}
+      {img !== "" && (
+        <img
+          src={img}
+          alt={"Imagem de " + name}
+          className="absolute w-16 left-4 top-20 bg-gray-800 p-1 rounded-lg"
+        />
+      )}
       {/* INFO DIV */}
       <div className="flex flex-1 flex-col gap-3 mt-3 p-3 min-h-42 justify-between">
         <p className="font-bold">{name}</p>

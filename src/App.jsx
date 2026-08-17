@@ -1,5 +1,4 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { createContext } from "react";
 
 import { ServerProvider } from "./Contexts/ServerContext";
 
@@ -74,6 +73,14 @@ const App = () => {
               className="underline"
             >
               Kauã Thalison
+            </a>{" "}
+            e{" "}
+            <a
+              href="https://github.com/Shinymonke69"
+              target="_blank"
+              className="underline"
+            >
+              Gabriel Braz
             </a>{" "}
             com muito 💗
           </p>
