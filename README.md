@@ -1,7 +1,16 @@
-# Doki Doki Translation Club
+# 💖 Doki Doki Translation Club
 
-Version: 1.0.0
-Latest Stable Version: 1.0.0
-Website: [dokidokitranslationclub](https://doki-doki-translation-club.vercel.app)
+The front-end for the Doki Doki Translation Club team's website. You can check the backend [here](https://github.com/isneiki/Doki-Doki-Translation-Club-Back).
 
-Created by: [isneiki](https://github.com/isneiki)
+## 🔨 Technologies
+
+- React
+- React Router
+- Javascript
+- Tailwindcss
+- Vite
+
+## 🚀 Features
+
+- Admin panel to easy add new translations
+- Clean and concise ui to find and download translations

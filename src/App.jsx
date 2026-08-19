@@ -63,9 +63,9 @@ const App = () => {
         </ServerProvider>
       </main>
 
-      <footer className="bg-dark h-12">
-        <div className="flex justify-evenly items-center h-full">
-          <p>
+      <footer className="bg-dark min-h-12">
+        <div className="flex justify-evenly items-center h-full p-2">
+          <p className="p-4">
             Criado por{" "}
             <a
               href="https://github.com/thaleskaua66/"
