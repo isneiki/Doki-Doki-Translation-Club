@@ -66,15 +66,13 @@ const Form = ({ formName, submit, preload = {}, log }) => {
         value={banner}
         onChange={(e) => setBanner(e.target.value)}
       />
-      <label htmlFor="img">
-        Link do ícone: <span className="text-red-400">*</span>
-      </label>
+      <label htmlFor="img">Link do ícone:</label>
       <input
         type="text"
         name="img"
         id="img"
         className="border-2 border-gray-800 px-2 py-1 rounded-md"
-        placeholder="http://media.discordapp.net/blahblahblah"
+        placeholder="Opcional (caso não tenha valor, usa o ícone default)"
         value={img}
         onChange={(e) => setImg(e.target.value)}
       />
