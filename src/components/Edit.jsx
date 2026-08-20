@@ -5,33 +5,16 @@ import Form from "./Form";
 const Edit = ({ translation, adminKey, close }) => {
   const { server } = useContext(ServerContext);
 
-  const [name, setName] = useState(translation.name);
-  const [description, setDescription] = useState(translation.description);
-  const [banner, setBanner] = useState(translation.banner);
-  const [img, setImg] = useState(translation.image);
-  const [linkMobile, setLinkMobile] = useState(translation.linkMobile);
-  const [linkPC, setLinkPC] = useState(translation.linkPC);
-
   const [log, setLog] = useState("");
 
-  const submit = async (e) => {
-    e.preventDefault();
-
-    // TODO: Update the endpoint to the correct one for editing a translation
-    const res = await fetch(`${server}/translations/new`, {
+  const submit = async (body) => {
+    const res = await fetch(`${server}/translations/edit/${body.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${adminKey}`,
       },
-      body: JSON.stringify({
-        name: name,
-        description: description,
-        banner: banner,
-        img: img,
-        linkPC: linkPC,
-        linkMobile: linkMobile,
-      }),
+      body: JSON.stringify(body),
     });
 
     if (!res.ok) {

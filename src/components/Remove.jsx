@@ -30,15 +30,16 @@ const Remove = ({ adminKey }) => {
     };
 
     getTranslations();
-  }, []);
+  }, [server]);
 
   const deleteTranslation = async (id) => {
-    const res = await fetch(`${server}/translations/${id}`, {
-      method: "DELETE",
+    const res = await fetch(`${server}/translations/remove`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${adminKey}`,
       },
+      body: JSON.stringify({ id: id }),
     });
 
     if (!res.ok) return;

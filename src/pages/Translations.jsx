@@ -19,7 +19,7 @@ const Translations = () => {
     }
 
     loadAll();
-  }, []);
+  }, [server]);
 
   let filteredTranslations = translations.filter((translation) =>
     translation.name.toLowerCase().includes(search.toLowerCase()),

@@ -1,8 +1,6 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import dokis from "../assets/dokis.png";
 import Translation from "../components/Translation";
-import banner from "../assets/banner.png";
-import icon from "../assets/logo.png";
 import { useContext, useEffect, useState } from "react";
 import { ServerContext } from "../Contexts/ServerContext";
 
@@ -20,7 +18,7 @@ const Home = () => {
     }
 
     loadPopulars();
-  }, []);
+  }, [server]);
 
   return (
     <div className="flex flex-col items-center gap-1.5">

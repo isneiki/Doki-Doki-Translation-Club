@@ -1,37 +1,20 @@
 import { ServerContext } from "../Contexts/ServerContext";
-import { useContext, useRef, useState } from "react";
-import Banner from "../assets/banner.png";
+import { useContext, useState } from "react";
 import Form from "./Form";
 
 const New = ({ adminKey }) => {
   const { server } = useContext(ServerContext);
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [banner, setBanner] = useState("");
-  const [img, setImg] = useState("");
-  const [linkMobile, setLinkMobile] = useState("");
-  const [linkPC, setLinkPC] = useState("");
-
   const [log, setLog] = useState("");
 
-  const submit = async (e) => {
-    e.preventDefault();
-
-    const res = await fetch(`${server}/translations/`, {
+  const submit = async (body) => {
+    const res = await fetch(`${server}/translations/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${adminKey}`,
       },
-      body: JSON.stringify({
-        name: name,
-        description: description,
-        banner: banner,
-        img: img,
-        linkPC: linkPC,
-        linkMobile: linkMobile,
-      }),
+      body: JSON.stringify(body),
     });
 
     if (!res.ok) {

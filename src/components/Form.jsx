@@ -8,10 +8,26 @@ const Form = ({ formName, submit, preload = {}, log }) => {
   const [linkMobile, setLinkMobile] = useState(preload.linkMobile || "");
   const [linkPC, setLinkPC] = useState(preload.linkPC || "");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const body = {
+      id: preload.id,
+      name: name,
+      description: description,
+      banner: banner,
+      img: img,
+      linkMobile: linkMobile,
+      linkPC: linkPC,
+    };
+
+    await submit(body);
+  };
+
   return (
     <form
       // TODO: Update onSubmit to call submit function instead of console.log
-      onSubmit={submit}
+      onSubmit={(e) => handleSubmit(e)}
       className="gap-2 flex flex-col rounded-md flex-1"
     >
       <h2 className="text-2xl mb-2">{formName}</h2>
